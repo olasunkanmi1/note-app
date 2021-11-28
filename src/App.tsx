@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-
-interface Note {
-    id: string,
-    title: string,
-    text: string,
-    color: string,
-    date: string
-}
+import { Col, Container, Row } from 'react-bootstrap';
+import CreateNotes from './components/CreateNote';
+import Header from './components/Header';
+import NotesList from './components/NotesList';
+import { Note } from "./models/note.model";
 
 function App() {
   const [notes, setNotes] = useState<Note[]>([{
@@ -18,9 +15,22 @@ function App() {
   }]);
 
   return (
-    <div>
-      APP 
-    </div>
+    <>
+      <Header />
+      <Container className="mt-5">
+        <Row>
+          <Col>
+            <NotesList notes={notes} setNotes={setNotes} />
+          </Col>
+        </Row>
+        
+        <Row>
+          <Col>
+            <CreateNotes notes={notes} setNotes={setNotes} />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

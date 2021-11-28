@@ -1,11 +1,26 @@
-import React from 'react'
+import * as React from 'react';
+import { Card } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import { Note } from '../models/note.model';
 
-const Notes = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+interface INotesProps {
+    note: Note,
+    handleDelete: (id: string) => void
 }
 
-export default Notes
+const Notes: React.FC<INotesProps> = ({ note, handleDelete }) => {
+  return (
+      <div className="mb-3">
+          <Card style={{backgroundColor: note.color}}>
+              <Card.Body>
+                <Card.Title> { note.title } </Card.Title>
+                <Card.Text> { note.text } </Card.Text>
+                <Card.Subtitle className="text-muted"> { note.date } </Card.Subtitle>
+                <Button className="mt-3" variant="danger" onClick={() => handleDelete(note.id)}> Delete </Button>
+              </Card.Body>
+          </Card>
+      </div>
+    );
+};
+
+export default Notes;
