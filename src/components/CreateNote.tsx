@@ -49,7 +49,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
             
             <Form.Group className="mb-3">
                 <Form.Label htmlFor="colorInput">Color</Form.Label>
-                <Form.Control ref={colorRef} type="color" id="colorInput" defaultValue="#ddd" title="choose color" />
+                <Form.Control ref={colorRef} type="color" id="colorInput" defaultValue="#808080" title="choose color" />
             </Form.Group>
 
             <Button type="submit" variant="primary">Create</Button>
