@@ -6,18 +6,20 @@ import NotesList from './components/NotesList';
 import { Note } from "./models/note.model";
 
 function App() {
-  const [notes, setNotes] = useState<Note[]>([{
-    id: (new Date).toString(),
-    title: "Meetings",
-    text: "Schedule meetings with designers",
-    color: "#ddd",
-    date: (new Date).toString()
-  }]);
+  const [notes, setNotes] = useState<Note[]>([
+    // {
+    //   id: (new Date).toString(),
+    //   title: "Meetings",
+    //   text: "Schedule meetings with designers",
+    //   color: "#ddd",
+    //   date: (new Date).toString()
+    // }
+  ]);
 
   return (
     <>
       <Header />
-      <Container className="mt-5">
+      <Container className="mt-5 overflow-hidden">
         <Row>
           <Col>
             <NotesList notes={notes} setNotes={setNotes} />

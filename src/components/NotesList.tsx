@@ -18,8 +18,8 @@ const NotesList: React.FC<INotesListProps> = ({ notes, setNotes }) => {
     }
     return (
       <>
-        <h2 className="mt-3">Notes</h2>
-        <div>
+        {notes.length === 0 ? null :<h2 className="mt-3">Notes</h2>}
+        <div className="d-flex flex-wrap">
             { renderNotes() }
         </div>
       </>
